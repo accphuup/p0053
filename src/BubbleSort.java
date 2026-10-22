@@ -25,7 +25,6 @@ public class BubbleSort {
      */
     public static void sortArrayAscending() {
         if (arrayOfElements == null || arrayOfElements.length == 0) {
-            System.err.println("List empty.");
             return;
         }
     
@@ -46,7 +45,6 @@ public class BubbleSort {
      */
     public static void sortArrayDescending() {
         if (arrayOfElements == null || arrayOfElements.length == 0) {
-            System.err.println("List empty.");
             return;
         }
         for (int i = 0; i < arrayOfElements.length - 1; i++) {
