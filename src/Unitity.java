@@ -52,7 +52,7 @@ public class Unitity {
                 int number = Integer.parseInt(input);
                 if (number >= 1 && number <= 4) {
                      return number;
-                }else{
+                }else {
                     System.err.println("Must be input integer " + 1 + " to " + 4 + ".");
                 }
                 

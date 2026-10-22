@@ -45,7 +45,10 @@ public class BubbleSort {
      * Sắp xếp mảng theo thứ tự giảm dần.
      */
     public static void sortArrayDescending() {
-      
+        if (arrayOfElements == null || arrayOfElements.length == 0) {
+            System.err.println("List empty.");
+            return;
+        }
         for (int i = 0; i < arrayOfElements.length - 1; i++) {
             for (int j = 0; j < arrayOfElements.length - 1 - i; j++) {
                 if (arrayOfElements[j] < arrayOfElements[j + 1]) {
@@ -59,6 +62,10 @@ public class BubbleSort {
     }
     
     public static void displaySortArrayAscending(){
+         if (arrayOfElements == null || arrayOfElements.length == 0) {
+            System.err.println("List empty.");
+            return;
+        }
          System.out.println("----- Ascending -----");
         for (int i = 0; i < arrayOfElements.length; i++) {
             System.out.print("[" + arrayOfElements[i] + "]");
@@ -71,6 +78,10 @@ public class BubbleSort {
     }
     
     public static void displaySortArrayDescending(){
+         if (arrayOfElements == null || arrayOfElements.length == 0) {
+            System.err.println("List empty.");
+            return;
+        }
         System.out.println("----- Descending -----");
         for (int i = 0; i < arrayOfElements.length; i++) {
             System.out.print("[" + arrayOfElements[i] + "]");
