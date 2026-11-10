@@ -1,64 +1,75 @@
+
 import java.util.Scanner;
 
-/**
- * Class Unitity in role validate to check valid input users.
- * 
- * Version 16/9/2026
- * 
- * @author VinhHQHE194318
- */
 public class Unitity {
 
+    // Scanner instance to read input from keyboard
     private static final Scanner sc = new Scanner(System.in);
 
-    
+    // Read a valid integer from keyboard
     public static int checkInputInt() {
         while (true) {
             try {
+                // Read input string and trim extra spaces
                 String input = sc.nextLine().trim();
-                int result = Integer.parseInt(input);
-                return result;
+
+                // Parse string to integer and return
+                int number = Integer.parseInt(input);
+                return number;
             } catch (NumberFormatException e) {
-              System.err.println("Please input numberand number is greater than zero");
+                // Display error message when input is not an integer
+                System.out.println("Please input number and number is greater than zero");
+                System.out.print("Re-enter integer: ");
             }
         }
     }
-    /**
-     * Allow user input number of array (length > 0)
-     */
-    public static int inputSizeOfArray(String msg) {
 
+    // Read size of array (must be > 0)
+    public static int inputSizeOfArray(String msg) {
         while (true) {
             try {
-                System.out.println(msg);
+                // Display prompt message
+                System.out.print(msg);
+                // Read input string and trim extra spaces
                 String input = sc.nextLine().trim();
-                int result = Integer.parseInt(input);
-                if (result > 0) {
-                 return result;
-                }              
+                // Parse string to integer
+                int size = Integer.parseInt(input);
+
+                // Verify size is strictly greater than 0
+                if (size > 0) {
+                    return size;
+                } else {
+                    // Display error if size <= 0
+                    System.out.println("Please input number and number is greater than zero");
+                }
             } catch (NumberFormatException e) {
-              System.err.println("Please input numberand number is greater than zero");
+                // Display error if input is not a number
+                System.out.println("Please input number and number is greater than zero");
             }
         }
     }
 
-    /**
-     * Check menu choice limit from min to max
-     */
+    // Read valid menu option choice (1 to 4)
     public static int checkInputLimit() {
         while (true) {
             try {
+                // Read input string and trim extra spaces
                 String input = sc.nextLine().trim();
-                int number = Integer.parseInt(input);
-                if (number >= 1 && number <= 4) {
-                     return number;
-                }else {
-                    System.err.println("Must be input integer " + 1 + " to " + 4 + ".");
+                // Parse string to integer
+                int choice = Integer.parseInt(input);
+
+                // Verify choice is within range [1, 4]
+                if (choice >= 1 && choice <= 4) {
+                    return choice;
+                } else {
+                    // Display error if option is out of range
+                    System.out.println("Please choice option from 1 to 4.");
                 }
-                
             } catch (NumberFormatException e) {
-              System.err.println("Please input numberand number is greater than zero");
+                // Display error if input is not a number
+                System.out.println("Please input integer number.");
             }
+            System.out.print("Please choice one option: ");
         }
     }
 }

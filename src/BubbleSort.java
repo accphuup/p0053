@@ -1,92 +1,62 @@
-/**
- * Class BubbleSort in role service to process algorithm and display.
- * 
- * Version 16/9/2026
- * @author VinhHQHE194318
- */
 public class BubbleSort {
-    
-    // Mảng toàn cục lưu trữ dữ liệu
-    private static int[] arrayOfElements;
 
-    /**
-     * Cho phép người dùng nhập giá trị cho mảng dựa vào size được truyền vào.
-     */
-    public static void inputElements(int size) {
-        arrayOfElements = new int[size];
-        for (int i = 0; i < arrayOfElements.length; i++) {
-            System.out.print("Enter Number " + (i + 1) + ": ");
-            arrayOfElements[i] = Unitity.checkInputInt();
-        }
-    }
-
-    /**
-     * Sắp xếp mảng theo thứ tự tăng dần.
-     */
-    public static void sortArrayAscending() {
-        if (arrayOfElements == null || arrayOfElements.length == 0) {
-            return;
-        }
-    
-        for (int i = 0; i < arrayOfElements.length - 1; i++) {
-            for (int j = 0; j < arrayOfElements.length - 1 - i; j++) {
-                if (arrayOfElements[j] > arrayOfElements[j + 1]) {
-                    int temp = arrayOfElements[j];
-                    arrayOfElements[j] = arrayOfElements[j + 1];
-                    arrayOfElements[j + 1] = temp;
+    // Sort array in ascending order
+    public static void sortAscending(int[] array) {
+        // Outer loop: passes through array elements
+        for (int i = 0; i < array.length - 1; i++) {
+            // Inner loop: compares adjacent pairs
+            for (int j = 0; j < array.length - 1 - i; j++) {
+                // Swap if left element is greater than right element
+                if (array[j] > array[j + 1]) {
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
                 }
             }
         }
-       
     }
 
-    /**
-     * Sắp xếp mảng theo thứ tự giảm dần.
-     */
-    public static void sortArrayDescending() {
-        if (arrayOfElements == null || arrayOfElements.length == 0) {
-            return;
-        }
-        for (int i = 0; i < arrayOfElements.length - 1; i++) {
-            for (int j = 0; j < arrayOfElements.length - 1 - i; j++) {
-                if (arrayOfElements[j] < arrayOfElements[j + 1]) {
-                    int temp = arrayOfElements[j];
-                    arrayOfElements[j] = arrayOfElements[j + 1];
-                    arrayOfElements[j + 1] = temp;
+    // Sort array in descending order
+    public static void sortDescending(int[] array) {
+        // Outer loop: passes through array elements
+        for (int i = 0; i < array.length - 1; i++) {
+            // Inner loop: compares adjacent pairs
+            for (int j = 0; j < array.length - 1 - i; j++) {
+                // Swap if left element is smaller than right element
+                if (array[j] < array[j + 1]) {
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
                 }
             }
         }
-       
     }
-    
-    public static void displaySortArrayAscending(){
-         if (arrayOfElements == null || arrayOfElements.length == 0) {
-            System.err.println("List empty.");
-            return;
-        }
-         System.out.println("----- Ascending -----");
-        for (int i = 0; i < arrayOfElements.length; i++) {
-            System.out.print("[" + arrayOfElements[i] + "]");
-            if (i < arrayOfElements.length - 1) {
+
+    // Display array in ascending format: [1]->[3]->[5]
+    public static void displayAscending(int[] array) {
+        System.out.println("----- Ascending -----");
+        // Print each element inside brackets
+        for (int i = 0; i < array.length; i++) {
+            System.out.print("[" + array[i] + "]");
+            // Print right arrow between elements, except the last one
+            if (i < array.length - 1) {
                 System.out.print("->");
             }
         }
         System.out.println();
-     
     }
-    
-    public static void displaySortArrayDescending(){
-         if (arrayOfElements == null || arrayOfElements.length == 0) {
-            System.err.println("List empty.");
-            return;
-        }
+
+    // Display array in descending format: [5]<-[3]<-[1]
+    public static void displayDescending(int[] array) {
         System.out.println("----- Descending -----");
-        for (int i = 0; i < arrayOfElements.length; i++) {
-            System.out.print("[" + arrayOfElements[i] + "]");
-            if (i < arrayOfElements.length - 1) {
+        // Print each element inside brackets
+        for (int i = 0; i < array.length; i++) {
+            System.out.print("[" + array[i] + "]");
+            // Print left arrow between elements, except the last one
+            if (i < array.length - 1) {
                 System.out.print("<-");
             }
         }
-         System.out.println();
+        System.out.println();
     }
 }
